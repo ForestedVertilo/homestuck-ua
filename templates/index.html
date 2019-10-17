@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+  <title>HomestuckUA</title>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+<body>
+  <div class="wrapper">
+<div class="main">
+  
+<h2>{{ page["title"] }}</h2>
+{% for img in  page['media'] %}
+  <p><img src="{{ url_for('static', filename='pages_img/') }}{{img}}" alt=""></p>
+{% endfor %}
+<div class="text">
+{{ page['text']|safe }}
+</div>
+{% if action != "" %}
+<div class="action">
+  <a href="{{ url_for('.pages', num_page=page['page'] + 1) }}">{{ action }}</a>
+{% endif %}
+</div>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+  <title>HomestuckUA</title>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="wrapper">
+<div class="main">
+  
+<form method="POST" action="/admin" enctype="multipart/form-data">
+  {{ form.hidden_tag() }}
+  {{ form.csrf_token }}
+  <table>
+    <tr>
+      <td>
+          {{ form.page.label }}
+        </td>
+      <td>{{ form.page }}</td>
+    </tr>
+    <tr>
+      <td>{{ form.title.label }}</td>
+      <td>{{ form.title }}</td>
+    </tr>
+    <tr>
+      <td>
+          {{ form.media.label }}</td>
+      <td>{{ form.media }}</td>
+    </tr>
+    <tr>
+      <td>
+          {{ form.text.label }}</td>
+      <td>{{ form.text }}</td>
+    </tr>
+    <tr>
+      <td>
+          {{ form.isFlash.label }}</td>
+      <td>{{ form.isFlash }}</td>
+    </tr>
+  </table>
+  
+  <input type="submit" value="Go">
+</form>
+</div>
+</div>
+
+</div>
+</body>
+</html>
